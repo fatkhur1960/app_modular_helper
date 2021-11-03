@@ -1,0 +1,22 @@
+name: app_route_generator
+description: A new flutter package project.
+version: 1.0.0+1
+homepage: https://github.com/jorgecoca/todo_reporter.dart
+publish_to: none
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies:
+  analyzer: ^2.1.0 # Pin the analyzer version to work around generatiuon failure
+  build: ^2.0.1
+  build_config: ^1.0.0
+  source_gen: ^1.0.1
+  built_collection: ^5.0.0
+  code_builder: ^4.0.0
+  dart_style: ^2.0.1
+  app_route:
+    path: ../app_route/
+  
+dev_dependencies:
+  flutter_lints: ^1.0.0
