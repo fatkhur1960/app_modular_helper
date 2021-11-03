@@ -18,9 +18,11 @@ packages:
   app_route:
     dependency: "direct main"
     description:
-      path: "../app_route"
-      relative: true
-    source: path
+      path: app_route
+      ref: HEAD
+      resolved-ref: d83a74bb8a15035ae61d0a967d83f5b949884898
+      url: "git://github.com/fatkhur1960/app_modular_helper.git"
+    source: git
     version: "1.0.0+1"
   args:
     dependency: transitive
@@ -120,6 +122,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   file:
     dependency: transitive
     description:

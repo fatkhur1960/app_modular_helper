@@ -1,7 +1,7 @@
 name: app_route_generator
 description: A new flutter package project.
 version: 1.0.0+1
-homepage: https://github.com/jorgecoca/todo_reporter.dart
+homepage: https://github.com/fatkhur1960/app_modular_helper
 publish_to: none
 
 environment:
@@ -16,7 +16,9 @@ dependencies:
   code_builder: ^4.0.0
   dart_style: ^2.0.1
   app_route:
-    path: ../app_route/
+    git: 
+      url: git://github.com/fatkhur1960/app_modular_helper.git
+      path: app_route/
   
 dev_dependencies:
   flutter_lints: ^1.0.0
