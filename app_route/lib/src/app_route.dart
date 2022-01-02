@@ -28,7 +28,7 @@ class ArgParam extends ArgType {
 }
 
 @immutable
-@Target({TargetKind.field})
+@Target({TargetKind.field, TargetKind.topLevelVariable})
 class AppRoutePage {
   /// Provide Child View to the Route
   final Object child;
@@ -41,11 +41,11 @@ class AppRoutePage {
 }
 
 @immutable
-@Target({TargetKind.field})
-/// Provide BlocProvider to the Child View
+@Target({TargetKind.field, TargetKind.method})
 class RegisterBlocs {
   final List<Object> blocs;
 
+  /// Provide BlocProvider to the Child View
   const RegisterBlocs(this.blocs);
 }
 
@@ -53,4 +53,38 @@ class RegisterBlocs {
 @Target({TargetKind.classType})
 class AppRoute {
   const AppRoute();
+}
+
+@immutable
+@Target({TargetKind.classType})
+class RouteModule {
+  final String name;
+
+  /// `name` parameter should be same as the getter declaration name
+  /// and must be starts with `/`.
+  const RouteModule(this.name);
+}
+
+@immutable
+@Target({TargetKind.method})
+class ModulePage<T extends Object> {
+  final String name;
+  final T child;
+  /// Create Route Page module
+  /// With params route `name`, and `child` widget.
+  const ModulePage(this.name, this.child);
+}
+
+@immutable
+@Target({TargetKind.getter})
+class AppRouteModule {
+  const AppRouteModule();
+}
+
+@immutable
+@Target({TargetKind.parameter})
+class Arg {
+  final String name;
+
+  const Arg(this.name);
 }
