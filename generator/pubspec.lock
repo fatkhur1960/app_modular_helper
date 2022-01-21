@@ -18,9 +18,11 @@ packages:
   app_route:
     dependency: "direct main"
     description:
-      path: "../app_route"
-      relative: true
-    source: path
+      path: app_route
+      ref: HEAD
+      resolved-ref: dd8e05a22ba2460e26539764b7ec7e412d2cb02c
+      url: "git://github.com/fatkhur1960/app_modular_helper.git"
+    source: git
     version: "1.0.0+1"
   args:
     dependency: transitive

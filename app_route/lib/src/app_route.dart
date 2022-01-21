@@ -70,6 +70,7 @@ class RouteModule {
 class ModulePage<T extends Object> {
   final String name;
   final T child;
+
   /// Create Route Page module
   /// With params route `name`, and `child` widget.
   const ModulePage(this.name, this.child);
@@ -78,7 +79,8 @@ class ModulePage<T extends Object> {
 @immutable
 @Target({TargetKind.getter})
 class AppRouteModule {
-  const AppRouteModule();
+  final List<Object>? guards;
+  const AppRouteModule({this.guards});
 }
 
 @immutable

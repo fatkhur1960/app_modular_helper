@@ -177,14 +177,16 @@ class RouteModuleGenerator extends GeneratorForAnnotation<RouteModule> {
     final targetPage = _getChildPage(m);
     final blocs = _getBlocs(m);
 
-    String child = 'const $targetPage()';
+    String child =
+        'const $targetPage(key: Key("${targetPage.toLowerCase()})"))';
     List<String> args = [];
     m.parameters.forEach((params) {
       final argName = _getParamName(params);
       args.add("$argName: args.data['${argName}'] as ${params.type}");
     });
     if (args.isNotEmpty) {
-      child = '$targetPage(${args.join(',')})';
+      child =
+          '$targetPage(key: Key("${targetPage.toLowerCase()})"), ${args.join(',')})';
     }
 
     if (blocs.isNotEmpty) {
