@@ -166,10 +166,14 @@ class RouteModuleGenerator extends GeneratorForAnnotation<RouteModule> {
     final pathName = _getPathName(m);
     final targetPath = '${basePath}${pathName}';
     final args = {};
+    String arguments = '';
     m.parameters.forEach((params) {
       args["'${_getParamName(params)}'"] = '${params.name}';
     });
-    return Code("Modular.to.pushNamed('$targetPath', arguments: $args)");
+    if (args.isNotEmpty) {
+      arguments = 'arguments: $args,';
+    }
+    return Code("Modular.to.pushNamed('$targetPath', $arguments)");
   }
 
   void _generateChildRoute(MethodElement m) {
@@ -177,15 +181,15 @@ class RouteModuleGenerator extends GeneratorForAnnotation<RouteModule> {
     final targetPage = _getChildPage(m);
     final blocs = _getBlocs(m);
 
-    final key = 'key: Key("${pathName.replaceFirst('/', '')}")';
-    String child = 'const $targetPage($key)';
+    final key = 'Key("${pathName.replaceFirst('/', '')}")';
+    String child = 'const $targetPage(key: $key)';
     List<String> args = [];
     m.parameters.forEach((params) {
       final argName = _getParamName(params);
       args.add("$argName: args.data['${argName}'] as ${params.type}");
     });
     if (args.isNotEmpty) {
-      child = '$targetPage($key, ${args.join(',')},)';
+      child = '$targetPage(key: const $key, ${args.join(',')},)';
     }
 
     if (blocs.isNotEmpty) {
